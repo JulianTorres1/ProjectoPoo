@@ -12,5 +12,7 @@ public class pacientes {
     
     static String medicoCorrespondiente;
     static String historialMedico;
+
+    //hola
     
 }
