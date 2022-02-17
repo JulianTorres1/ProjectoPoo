@@ -40,6 +40,10 @@ public class infoColector extends Users {
            // guardamos la direccion en el objeto
            System.out.println("ingrese la direccion del usuario");
            Users.direccion = sc.next(); 
+           
+           //guardamos el telefono en el objeto
+           System.out.println("ingrese el numero de telefono del usuario");
+           Users.telefono = sc.nextInt();
         
         }
         
@@ -53,6 +57,10 @@ public class infoColector extends Users {
            // guardamos la direccion en el objeto
            System.out.println("ingrese la direccion del doctor");
            Doctors.direccion = sc.next(); 
+           
+           //guardamos el telefono en el objeto
+           System.out.println("ingrese el numero de telefono del doctor");
+           Doctors.telefono = sc.nextInt();
         
         }
         
@@ -60,12 +68,16 @@ public class infoColector extends Users {
         
         if (ClassType == 2){ 
            // guardamos el nombre ingresado en el objeto paciente
-           System.out.println("Ingrese el nombre del nuevo usuario " );
+           System.out.println("Ingrese el nombre del nuevo paciente " );
            pacientes.nombre = sc.next();
            
            // guardamos la direccion en el objeto
-           System.out.println("ingrese la direccion del doctor");
+           System.out.println("ingrese la direccion del paciente");
            pacientes.direccion = sc.next();
+           
+           //guardamos el telefono en el objeto
+           System.out.println("ingrese el numero de telefono del doctor");
+           pacientes.telefono = sc.nextInt();
         
         }
         
@@ -77,8 +89,12 @@ public class infoColector extends Users {
            empleados.nombre = sc.next();
            
            // guardamos la direccion en el objeto
-           System.out.println("ingrese la direccion del doctor");
+           System.out.println("ingrese la direccion del empleado");
            empleados.direccion = sc.next();
+           
+           //guardamos el telefono en el objeto
+           System.out.println("ingrese el numero de telefono del doctor");
+           empleados.telefono = sc.nextInt();
            
            
         
