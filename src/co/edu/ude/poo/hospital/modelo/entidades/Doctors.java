@@ -10,7 +10,7 @@ package co.edu.ude.poo.hospital.modelo.entidades;
  */
 public class Doctors extends Users{
     
-    static String numeroDeColegiado;
-    static String tipoDoctor;
+    public static int numeroDeColegiado;
+    public static String tipoDoctor;
     
 }

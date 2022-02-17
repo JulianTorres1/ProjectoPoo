@@ -10,8 +10,8 @@ package co.edu.ude.poo.hospital.modelo.entidades;
  */
 public class pacientes extends Users{
     
-    static String medicoCorrespondiente;
-    static String historialMedico;
+    public static String medicoCorrespondiente;
+    public static String historialMedico;
 
     //hola
     

@@ -20,14 +20,7 @@ public class Users {
     public static int numeroSeguridadSocial;
 
     public Users() {
-        Users.nombre    = nombre;
-        Users.direccion = direccion;
-        Users.telefono  = telefono;
-        Users.poblacion = poblacion;
-        Users.provincia = provincia;
-        Users.codigoPostal = codigoPostal;
-        Users.nif = nif;
-        Users.numeroSeguridadSocial = numeroSeguridadSocial;
+        
         
         
         

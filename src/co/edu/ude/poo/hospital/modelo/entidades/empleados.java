@@ -10,10 +10,8 @@ package co.edu.ude.poo.hospital.modelo.entidades;
  */
 public class empleados extends Users{
     
-    static String ats;
-    static String atsZona;
-    static String auxDeEnfermeria;
-    static String celadores;
-    static String admins;
+    
+    
+    public static String tipoDeEmpleado;
     
 }

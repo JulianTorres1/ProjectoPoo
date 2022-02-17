@@ -24,7 +24,9 @@ public class Hospital {
         infoColector.recolect();
         
         
-        showinfo.showclass(1);
+        System.out.println(infoColector.tipoDeUsuario);
+        
+        showinfo.showclass();
         
         
         
