@@ -10,19 +10,34 @@ package co.edu.ude.poo.hospital.modelo.entidades;
  */
 public class Users {
     
-    static String nombre;
-    static String direccion;
-    static String telefono;
-    static String poblacion;
-    static String provincia;
-    static String codigoPostal;
-    static String nif;
-    static String numeroSeguridadSocial;
+    public static String nombre;
+    public static String direccion;
+    public static int telefono;
+    public static String poblacion;
+    public static String provincia;
+    public static int codigoPostal;
+    public static int nif;
+    public static int numeroSeguridadSocial;
 
     public Users() {
+        Users.nombre    = nombre;
+        Users.direccion = direccion;
+        Users.telefono  = telefono;
+        Users.poblacion = poblacion;
+        Users.provincia = provincia;
+        Users.codigoPostal = codigoPostal;
+        Users.nif = nif;
+        Users.numeroSeguridadSocial = numeroSeguridadSocial;
+        
+        
+        
+       
+        
         
         
     }
+    
+    
     
     
     

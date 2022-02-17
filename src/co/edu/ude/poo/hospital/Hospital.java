@@ -4,6 +4,12 @@
  */
 package co.edu.ude.poo.hospital;
 
+import co.edu.ude.poo.hospital.servicios.infoColector;
+import co.edu.ude.poo.hospital.servicios.showinfo;
+
+
+
+
 /**
  *
  * @author nicolas
@@ -14,7 +20,18 @@ public class Hospital {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        infoColector.recolect();
+        
+        
+        showinfo.showclass(1);
+        
+        
+        
+        
+        
+        
+        
     }
     
 }

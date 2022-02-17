@@ -8,7 +8,7 @@ package co.edu.ude.poo.hospital.modelo.entidades;
  *
  * @author nicolas
  */
-public class pacientes {
+public class pacientes extends Users{
     
     static String medicoCorrespondiente;
     static String historialMedico;
