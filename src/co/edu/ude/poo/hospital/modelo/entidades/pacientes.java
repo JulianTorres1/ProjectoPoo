@@ -13,6 +13,6 @@ public class pacientes extends Users{
     public static String medicoCorrespondiente;
     public static String historialMedico;
 
-    //hola
+    
     
 }

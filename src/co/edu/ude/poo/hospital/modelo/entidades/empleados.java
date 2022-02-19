@@ -9,9 +9,6 @@ package co.edu.ude.poo.hospital.modelo.entidades;
  * @author nicolas
  */
 public class empleados extends Users{
-    
-    
-    
     public static String tipoDeEmpleado;
     
 }

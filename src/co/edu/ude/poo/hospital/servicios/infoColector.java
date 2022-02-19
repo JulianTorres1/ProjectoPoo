@@ -11,6 +11,9 @@ import co.edu.ude.poo.hospital.modelo.entidades.pacientes;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// importamos el conector para mysql
+
+
 /**
  *
  * @author nicolas
@@ -58,7 +61,9 @@ public class infoColector{
            //guardamos el dato provincia en el objeto
            System.out.println("Ingrese la provincia donde reside el usuario");
            Users.provincia = sc.next();
-           
+           CO
+9+
+
            // guardamos el codigo postal
            System.out.println("Ingrese el codigo postal del usuario");
            Users.codigoPostal = sc.nextInt();

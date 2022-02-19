@@ -6,6 +6,10 @@ package co.edu.ude.poo.hospital;
 
 import co.edu.ude.poo.hospital.servicios.infoColector;
 import co.edu.ude.poo.hospital.servicios.showinfo;
+import co.edu.udec.poo.hospital.util.GestionDeAlmacenamiento;
+
+
+
 
 
 
@@ -20,6 +24,9 @@ public class Hospital {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        
+        GestionDeAlmacenamiento.dbExists("3306","BDPOO","");
         
         infoColector.recolect();
         
