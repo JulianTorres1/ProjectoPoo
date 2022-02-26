@@ -78,7 +78,7 @@ public class infoColector{
               
         }
         
-        // ---------------------------------------------------------------------
+        // ----------------------------------------------------------------------
         
         if (tipoDeUsuario == 1){ 
            // guardamos el nombre ingresado en el objeto doctor
