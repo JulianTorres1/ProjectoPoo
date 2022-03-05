@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/nicolas/Documents/GitHub/ProjectoPoo/src/co/edu/ude/poo/hospital/modelo/entidades/empleados.java</file>
-            <file>file:/home/nicolas/Documents/GitHub/ProjectoPoo/src/co/edu/ude/poo/hospital/servicios/infoColector.java</file>
-            <file>file:/home/nicolas/Documents/GitHub/ProjectoPoo/src/co/edu/ude/poo/hospital/servicios/showinfo.java</file>
-            <file>file:/home/nicolas/Documents/GitHub/ProjectoPoo/src/co/edu/ude/poo/hospital/modelo/entidades/Doctors.java</file>
-            <file>file:/home/nicolas/Documents/GitHub/ProjectoPoo/src/co/edu/ude/poo/hospital/modelo/entidades/Users.java</file>
-            <file>file:/home/nicolas/Documents/GitHub/ProjectoPoo/src/co/edu/ude/poo/hospital/modelo/entidades/pacientes.java</file>
+            <file>file:/C:/Users/julia/Documents/Github/ProjectoPoo/src/co/edu/ude/poo/hospital/servicios/infoColector.java</file>
+            <file>file:/C:/Users/julia/Documents/Github/ProjectoPoo/src/co/edu/ude/poo/hospital/servicios/Doctors_1JpaController.java</file>
+            <file>file:/C:/Users/julia/Documents/Github/ProjectoPoo/src/co/edu/ude/poo/hospital/modelo/entidades/Doctors_1.java</file>
+            <file>file:/C:/Users/julia/Documents/Github/ProjectoPoo/src/co/edu/ude/poo/hospital/Hospital.java</file>
+            <file>file:/C:/Users/julia/Documents/Github/ProjectoPoo/src/co/edu/udec/poo/hospital/util/GestionDeAlmacenamiento.java</file>
+            <file>file:/C:/Users/julia/Documents/Github/ProjectoPoo/src/co/edu/ude/poo/hospital/modelo/entidades/Users_1.java</file>
+            <file>file:/C:/Users/julia/Documents/Github/ProjectoPoo/src/META-INF/persistence.xml</file>
         </group>
     </open-files>
 </project-private>
