@@ -33,7 +33,7 @@ public class Hospital {
                                Que desea hacer ahora:
                                1. Ingresar Un Tipo De Usuario
                                2. Mostrar un grupo de usuarios
-                               3. Buscar un Usuario
+                               3. Editar un Usuario
                                4. Eliminar Un Usuario
                                5. Salir Del Programa
                                """);
@@ -53,6 +53,14 @@ public class Hospital {
             }
             
             if (opt == 3) {
+                
+                System.out.println("Ingrese la ID del Usuario a Editar: \n"
+                        + "  ");
+                
+                int idE = sc.nextInt();
+                
+                GestionDeAlmacenamiento.EditarUsuario(idE);
+                
                 
             }
             if (opt == 4) {

@@ -50,8 +50,6 @@ public class GestionDeAlmacenamiento {
            Users_1JpaController crudUser = new Users_1JpaController(conexionBD);
            System.out.println("Coneccion Realizada!");
            try{
-               
-               Object  o[]= null;
                List<Users_1> listaUsuario = crudUser.findUsers_1Entities();
                System.out.println("           Nombre | Direccion | Telefono | Poblacion | Provincia | Codigo Postal | NIF | Numero de seguridad Social");
                for (int i = 0; i < listaUsuario.size(); i++) {
@@ -205,7 +203,7 @@ public class GestionDeAlmacenamiento {
         }
         
         if (optD == 4) {
-             EntityManagerFactory conexionBD = Persistence.createEntityManagerFactory("HospitalPU");
+           EntityManagerFactory conexionBD = Persistence.createEntityManagerFactory("HospitalPU");
            Empleados_1JpaController crudUser = new Empleados_1JpaController(conexionBD);
            
            try{
@@ -219,6 +217,331 @@ public class GestionDeAlmacenamiento {
         
         return mensaje;
         
+    }
+    
+    
+    public static String EditarUsuario(int id){
+        
+        EntityManagerFactory conexionBD = Persistence.createEntityManagerFactory("HospitalPU");
+        
+        
+        Scanner sc = new Scanner(System.in);
+        String estado = "No Exitoso";
+        
+        System.out.println("""
+                           Ingrese el tipo de Usuario Que Quiere editar:
+                           
+                           1 - Usuario
+                           2 - Doctor
+                           3 - Paciente
+                           4 - Empleado
+                           
+                           """);
+        
+        int optE = sc.nextInt();
+        
+        // ---------------------------------------------------------------------
+        // Ingreso Y Edicion Del nuevo Dato a editar
+        // ---------------------------------------------------------------------
+        if (optE == 1) {
+            
+            System.out.println("""
+                               Seleccione el dato que quiere editar del Usuario:
+                                1.Nombre
+                                2.Direccion 
+                                3.Telefono 
+                                4.Poblacion  
+                                5.Provincia  
+                                6.Codigo Postal  
+                                7.NIF 
+                                8.Numero de seguridad Social
+                               
+                               """);
+            
+            
+            int datoE = sc.nextInt();
+            
+            Users_1 u = new Users_1();
+            
+            String DatoEdit;
+            Users_1JpaController crudUser = new Users_1JpaController(conexionBD);
+            
+            if (datoE == 1) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                
+                
+                System.out.println(id);
+                
+                try{
+                    u.setIdUsers(id);
+                    u.setNombre(DatoEdit);
+                    System.out.println(u);
+                    crudUser.edit(u);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+                
+                
+            }
+            if (datoE == 2) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                u.setIdUsers(id);
+                u.setDireccion(DatoEdit);
+                
+                try{
+                    crudUser.edit(u);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 3) {
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                u.setIdUsers(id);
+                u.setTelefono(DatoEdit);
+                
+                try{
+                    crudUser.edit(u);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 4) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                u.setIdUsers(id);
+                u.setPoblacion(DatoEdit);
+                
+                try{
+                    crudUser.edit(u);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 5) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                u.setIdUsers(id);
+                u.setProvincia(DatoEdit);
+                
+                try{
+                    crudUser.edit(u);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 6) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                u.setIdUsers(id);
+                u.setCodigoPostal(DatoEdit);
+                
+                try{
+                    crudUser.edit(u);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 7) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                u.setIdUsers(id);
+                u.setNif(DatoEdit);
+                
+                try{
+                    crudUser.edit(u);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 8) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                u.setIdUsers(id);
+                u.setNumeroSeguridadSocial(DatoEdit);
+                
+                try{
+                    crudUser.edit(u);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            
+        }
+        // ---------------------------------------------------------------------
+        // Segundo Tipo De dato
+        // ---------------------------------------------------------------------
+        if (optE == 2) {
+            
+            System.out.println("""
+                               Seleccione el dato que quiere editar del Doctor:
+                                1.Nombre
+                                2.Direccion 
+                                3.Telefono 
+                                4.Poblacion  
+                                5.Provincia  
+                                6.Codigo Postal  
+                                7.NIF 
+                                8.Numero de seguridad Social
+                                9.Numero de colegiado
+                                10. Tipo De doctor
+                               
+                               """);
+            
+            
+            int datoE = sc.nextInt();
+            
+            
+            
+            String DatoEdit;
+            
+            Doctors_1JpaController crudUser = new Doctors_1JpaController(conexionBD);
+            Doctors_1 d = new Doctors_1();
+            if (datoE == 1) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                d.setIdDoctors(id);
+                d.setNombre(DatoEdit);
+                
+                try{
+                    crudUser.edit(d);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+                
+                
+            }
+            if (datoE == 2) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                d.setIdDoctors(id);
+                d.setDireccion(DatoEdit);
+                
+                try{
+                    crudUser.edit(d);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 3) {
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                d.setIdDoctors(id);
+                d.setTelefono(DatoEdit);
+                
+                try{
+                    crudUser.edit(d);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 4) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                d.setIdDoctors(id);
+                d.setPoblacion(DatoEdit);
+                
+                try{
+                    crudUser.edit(d);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 5) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                d.setIdDoctors(id);
+                d.setProvincia(DatoEdit);
+                
+                try{
+                    crudUser.edit(d);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 6) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                d.setIdDoctors(id);
+                d.setCodigoPostal(DatoEdit);
+                
+                try{
+                    crudUser.edit(d);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 7) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                d.setIdDoctors(id);
+                d.setNif(DatoEdit);
+                
+                try{
+                    crudUser.edit(d);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            if (datoE == 8) {
+                
+                System.out.println("Ingrese el nuevo Dato: ");
+                DatoEdit = sc.next();
+                d.setIdDoctors(id);
+                d.setNumeroSeguridadSocial(DatoEdit);
+                
+                try{
+                    crudUser.edit(d);
+                }catch(Exception e){
+               System.out.println("ERROR = "+e.getMessage());
+                }
+                
+            }
+            
+        }
+        if (optE == 3) {
+            
+            
+            
+        }
+        if (optE == 4) {
+            
+            
+            
+        }
+        
+        
+        return estado;
     }
     
     
