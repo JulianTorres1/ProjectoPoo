@@ -4,9 +4,10 @@
  */
 package co.edu.ude.poo.hospital.vistas.gui;
 
+import co.edu.ude.poo.hospital.modelo.entidades.Doctors_1;
 import co.edu.ude.poo.hospital.modelo.entidades.Users_1;
-import co.edu.ude.poo.hospital.servicios.Users_1JpaController;
-import co.edu.ude.poo.hospital.servicios.exceptions.NonexistentEntityException;
+import co.edu.ude.poo.hospital.servicios.Doctors_1JpaController;
+
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -19,16 +20,18 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author julia
  */
-public class VentanaCrudUsuarios {
-    
-    //objetos de la clase Usuario_1
-    private Users_1 u = new Users_1();
-    private JFrame jFrame = new JFrame();
+public class VentanaCrudDoctores {
     
     EntityManagerFactory conexionBD = Persistence.createEntityManagerFactory("HospitalPU");
-    Users_1JpaController crudUser = new Users_1JpaController(conexionBD);
+    Doctors_1JpaController crudUser = new Doctors_1JpaController(conexionBD);
     
-    public String InsertarUsuario(
+    //objetos de la clase Usuario_1
+    private Doctors_1 d = new Doctors_1();
+    private JFrame jFrame = new JFrame();
+    
+   
+    
+    public String InsertarDoctor(
             String nombre,
             String direccion,
             String telefono,
@@ -36,24 +39,30 @@ public class VentanaCrudUsuarios {
             String provincia,
             String codigoPostal,
             String nif,
-            String numeroSeguridaSocial
+            String numeroSeguridaSocial,
+            String numeroDeColegiado,
+            String tipoDeDoctor
     ){
         String mensaje = "";
         
         //asignamos los datos al objeto
         
         try {
-            u.setNombre(nombre);
-            u.setDireccion(direccion);
-            u.setTelefono(telefono);
-            u.setPoblacion(poblacion);
-            u.setProvincia(provincia);
-            u.setCodigoPostal(codigoPostal);
-            u.setNif(nif);
-            u.setNumeroSeguridadSocial(numeroSeguridaSocial);
+            d.setNombre(nombre);
+            d.setDireccion(direccion);
+            d.setTelefono(telefono);
+            d.setPoblacion(poblacion);
+            d.setProvincia(provincia);
+            d.setCodigoPostal(codigoPostal);
+            d.setNif(nif);
+            d.setNumeroSeguridadSocial(numeroSeguridaSocial);
+            d.setNumeroDeColegiado(numeroDeColegiado);
+            d.setTipoDeDoctor(tipoDeDoctor);
+            
+            
         
             // asignamo el objeto a el metodo create
-            crudUser.create(u);
+            crudUser.create(d);
             
             JOptionPane.showMessageDialog(jFrame, "Datos Guardados Correctamente!");
         } catch (Exception e) {
@@ -64,7 +73,7 @@ public class VentanaCrudUsuarios {
     }
     
     
-    public String editarUsuario(
+    public String editarDoctor(
             
             Integer id,
             String nombre,
@@ -74,7 +83,9 @@ public class VentanaCrudUsuarios {
             String provincia,
             String codigoPostal,
             String nif,
-            String numeroSeguridaSocial
+            String numeroSeguridaSocial,
+            String numeroDeColegiado,
+            String tipoDeDoctor
     ){
         
         String mensaje = "";
@@ -82,18 +93,20 @@ public class VentanaCrudUsuarios {
         //asignamos los datos al objeto
         
         try {
-            u.setIdUsers(id);
-            u.setNombre(nombre);
-            u.setDireccion(direccion);
-            u.setTelefono(telefono);
-            u.setPoblacion(poblacion);
-            u.setProvincia(provincia);
-            u.setCodigoPostal(codigoPostal);
-            u.setNif(nif);
-            u.setNumeroSeguridadSocial(numeroSeguridaSocial);
+            d.setIdDoctors(id);
+            d.setNombre(nombre);
+            d.setDireccion(direccion);
+            d.setTelefono(telefono);
+            d.setPoblacion(poblacion);
+            d.setProvincia(provincia);
+            d.setCodigoPostal(codigoPostal);
+            d.setNif(nif);
+            d.setNumeroSeguridadSocial(numeroSeguridaSocial);
+            d.setNumeroDeColegiado(numeroDeColegiado);
+            d.setTipoDeDoctor(tipoDeDoctor);
         
             // asignamo el objeto a el metodo create
-            crudUser.edit(u);
+            crudUser.edit(d);
             
             JOptionPane.showMessageDialog(jFrame, "Datos Editados Correctamente!");
         } catch (Exception e) {
@@ -123,18 +136,19 @@ public class VentanaCrudUsuarios {
         return mensaje;
     }
     
-    public void buscarUsuario(JTable tabla) {
+    public void buscarDoctor(JTable tabla) {
         
         DefaultTableModel model;
         model = new DefaultTableModel();
-        String [] titulo = {"ID","NOMBRE","DIRECCION","TELEFONO","POBLACION","PROVINCIA","CODIGO POSTAL","NIF","NUMERO DE SEGURIDAD SOCIAL"};
+        String [] titulo = {"ID","NOMBRE","DIRECCION","TELEFONO","POBLACION","PROVINCIA","CODIGO POSTAL","NIF","NUMERO DE SEGURIDAD SOCIAL","NUMERO DE COLEGIADO","TIPO DE DOCTOR"};
         model = new DefaultTableModel(null, titulo);
         
-        List<Users_1> listaUsuario = crudUser.findUsers_1Entities();        String [] datosUsuarios = new String[9];
-        for (Users_1 crudUsers_1 : listaUsuario) {
+        List<Doctors_1> listaUsuario = crudUser.findDoctors_1Entities();       
+        String [] datosUsuarios = new String[11];
+        for (Doctors_1 crudUsers_1 : listaUsuario) {
             
             try {
-                datosUsuarios[0] = crudUsers_1.getIdUsers()+"";
+                datosUsuarios[0] = crudUsers_1.getIdDoctors()+"";
                 datosUsuarios[1] = crudUsers_1.getNombre()+"";
                 datosUsuarios[2] = crudUsers_1.getDireccion()+"";
                 datosUsuarios[3] = crudUsers_1.getTelefono()+"";
@@ -143,6 +157,9 @@ public class VentanaCrudUsuarios {
                 datosUsuarios[6] = crudUsers_1.getCodigoPostal()+"";
                 datosUsuarios[7] = crudUsers_1.getNif()+"";
                 datosUsuarios[8] = crudUsers_1.getNumeroSeguridadSocial()+"";
+                datosUsuarios[9] = crudUsers_1.getNumeroDeColegiado()+"";
+                datosUsuarios[10] = crudUsers_1.getTipoDeDoctor()+"";
+                
                 model.addRow(datosUsuarios);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(jFrame, "Error al mostrar los usuarios");   
@@ -151,7 +168,5 @@ public class VentanaCrudUsuarios {
         tabla.setModel(model);
         
     }
-    
-    
     
 }
