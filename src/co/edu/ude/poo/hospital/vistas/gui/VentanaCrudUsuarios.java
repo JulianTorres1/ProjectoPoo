@@ -130,7 +130,8 @@ public class VentanaCrudUsuarios {
         String [] titulo = {"ID","NOMBRE","DIRECCION","TELEFONO","POBLACION","PROVINCIA","CODIGO POSTAL","NIF","NUMERO DE SEGURIDAD SOCIAL"};
         model = new DefaultTableModel(null, titulo);
         
-        List<Users_1> listaUsuario = crudUser.findUsers_1Entities();        String [] datosUsuarios = new String[9];
+        List<Users_1> listaUsuario = crudUser.findUsers_1Entities();
+        String [] datosUsuarios = new String[9];
         for (Users_1 crudUsers_1 : listaUsuario) {
             
             try {
@@ -150,6 +151,27 @@ public class VentanaCrudUsuarios {
         }
         tabla.setModel(model);
         
+    }
+    
+    public void mostrarUsuario(JTable tabla, int id){
+        
+        
+        DefaultTableModel model;
+        model = new DefaultTableModel();
+        String [] titulo = {"ID","NOMBRE","DIRECCION","TELEFONO","POBLACION","PROVINCIA","CODIGO POSTAL","NIF","NUMERO DE SEGURIDAD SOCIAL"};
+        model = new DefaultTableModel(null, titulo);
+        
+        List<Users_1> listaUsuario = crudUser.findUsers_1Entities();
+        String [] datosUsuarios = new String[9];
+        
+        
+        
+        
+        datosUsuarios[1] = "";
+    
+        
+    
+    
     }
     
     
