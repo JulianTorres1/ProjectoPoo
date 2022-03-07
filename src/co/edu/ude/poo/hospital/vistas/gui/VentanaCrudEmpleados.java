@@ -4,10 +4,10 @@
  */
 package co.edu.ude.poo.hospital.vistas.gui;
 
-import co.edu.ude.poo.hospital.modelo.entidades.Doctors_1;
+import co.edu.ude.poo.hospital.modelo.entidades.Empleados_1;
 import co.edu.ude.poo.hospital.modelo.entidades.Users_1;
-import co.edu.ude.poo.hospital.servicios.Doctors_1JpaController;
-
+import co.edu.ude.poo.hospital.servicios.Empleados_1JpaController;
+import co.edu.ude.poo.hospital.servicios.Users_1JpaController;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -20,18 +20,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author julia
  */
-public class VentanaCrudDoctores {
-    
-    EntityManagerFactory conexionBD = Persistence.createEntityManagerFactory("HospitalPU");
-    Doctors_1JpaController crudUser = new Doctors_1JpaController(conexionBD);
+public class VentanaCrudEmpleados {
     
     //objetos de la clase Usuario_1
-    private Doctors_1 d = new Doctors_1();
+    private Empleados_1 em = new Empleados_1();
     private JFrame jFrame = new JFrame();
     
-   
+    EntityManagerFactory conexionBD = Persistence.createEntityManagerFactory("HospitalPU");
+    Empleados_1JpaController crudUser = new Empleados_1JpaController(conexionBD);
     
-    public String InsertarDoctor(
+    public String Insertarempleado(
             String nombre,
             String direccion,
             String telefono,
@@ -40,29 +38,25 @@ public class VentanaCrudDoctores {
             String codigoPostal,
             String nif,
             String numeroSeguridaSocial,
-            String numeroDeColegiado,
-            String tipoDeDoctor
+            String tipoDeEmpleado
     ){
         String mensaje = "";
         
         //asignamos los datos al objeto
         
         try {
-            d.setNombre(nombre);
-            d.setDireccion(direccion);
-            d.setTelefono(telefono);
-            d.setPoblacion(poblacion);
-            d.setProvincia(provincia);
-            d.setCodigoPostal(codigoPostal);
-            d.setNif(nif);
-            d.setNumeroSeguridadSocial(numeroSeguridaSocial);
-            d.setNumeroDeColegiado(numeroDeColegiado);
-            d.setTipoDeDoctor(tipoDeDoctor);
-            
+            em.setNombre(nombre);
+            em.setDireccion(direccion);
+            em.setTelefono(telefono);
+            em.setPoblacion(poblacion);
+            em.setProvincia(provincia);
+            em.setNif(nif);
+            em.setNumeroSeguridadSocial(numeroSeguridaSocial);
+            em.setTipoDeEmpleado(tipoDeEmpleado);
             
         
             // asignamo el objeto a el metodo create
-            crudUser.create(d);
+            crudUser.create(em);
             
             JOptionPane.showMessageDialog(jFrame, "Datos Guardados Correctamente!");
         } catch (Exception e) {
@@ -73,7 +67,7 @@ public class VentanaCrudDoctores {
     }
     
     
-    public String editarDoctor(
+    public String editarEmpleado(
             
             Integer id,
             String nombre,
@@ -81,11 +75,9 @@ public class VentanaCrudDoctores {
             String telefono,
             String poblacion,
             String provincia,
-            String codigoPostal,
             String nif,
             String numeroSeguridaSocial,
-            String numeroDeColegiado,
-            String tipoDeDoctor
+            String tipoDeEmpleado
     ){
         
         String mensaje = "";
@@ -93,20 +85,18 @@ public class VentanaCrudDoctores {
         //asignamos los datos al objeto
         
         try {
-            d.setIdDoctors(id);
-            d.setNombre(nombre);
-            d.setDireccion(direccion);
-            d.setTelefono(telefono);
-            d.setPoblacion(poblacion);
-            d.setProvincia(provincia);
-            d.setCodigoPostal(codigoPostal);
-            d.setNif(nif);
-            d.setNumeroSeguridadSocial(numeroSeguridaSocial);
-            d.setNumeroDeColegiado(numeroDeColegiado);
-            d.setTipoDeDoctor(tipoDeDoctor);
+            em.setIdempleados(id);
+            em.setNombre(nombre);
+            em.setDireccion(direccion);
+            em.setTelefono(telefono);
+            em.setPoblacion(poblacion);
+            em.setProvincia(provincia);
+            em.setNif(nif);
+            em.setNumeroSeguridadSocial(numeroSeguridaSocial);
+            em.setTipoDeEmpleado(tipoDeEmpleado);
         
             // asignamo el objeto a el metodo create
-            crudUser.edit(d);
+            crudUser.edit(em);
             
             JOptionPane.showMessageDialog(jFrame, "Datos Editados Correctamente!");
         } catch (Exception e) {
@@ -122,7 +112,7 @@ public class VentanaCrudDoctores {
         return mensaje;
     }
     
-    public String borrarDoctor(int id) {
+    public String borrarEmpleado(int id) {
     
         String mensaje = "";
     
@@ -136,29 +126,26 @@ public class VentanaCrudDoctores {
         return mensaje;
     }
     
-    public void buscarDoctor(JTable tabla) {
+    public void buscarEmpleados(JTable tabla) {
         
         DefaultTableModel model;
         model = new DefaultTableModel();
-        String [] titulo = {"ID","NOMBRE","DIRECCION","TELEFONO","POBLACION","PROVINCIA","CODIGO POSTAL","NIF","NUMERO DE SEGURIDAD SOCIAL","NUMERO DE COLEGIADO","TIPO DE DOCTOR"};
+        String [] titulo = {"ID","NOMBRE","DIRECCION","TELEFONO","POBLACION","PROVINCIA","NIF","NUMERO DE SEGURIDAD SOCIAL","TIPO DE EMPLEADO"};
         model = new DefaultTableModel(null, titulo);
         
-        List<Doctors_1> listaUsuario = crudUser.findDoctors_1Entities();       
-        String [] datosUsuarios = new String[11];
-        for (Doctors_1 crudUsers_1 : listaUsuario) {
+        List<Empleados_1> listaUsuario = crudUser.findEmpleados_1Entities();        String [] datosUsuarios = new String[9];
+        for (Empleados_1 crudUsers_1 : listaUsuario) {
             
             try {
-                datosUsuarios[0] = crudUsers_1.getIdDoctors()+"";
+                datosUsuarios[0] = crudUsers_1.getIdempleados()+"";
                 datosUsuarios[1] = crudUsers_1.getNombre()+"";
                 datosUsuarios[2] = crudUsers_1.getDireccion()+"";
                 datosUsuarios[3] = crudUsers_1.getTelefono()+"";
                 datosUsuarios[4] = crudUsers_1.getPoblacion()+"";
                 datosUsuarios[5] = crudUsers_1.getProvincia()+"";
-                datosUsuarios[6] = crudUsers_1.getCodigoPostal()+"";
-                datosUsuarios[7] = crudUsers_1.getNif()+"";
-                datosUsuarios[8] = crudUsers_1.getNumeroSeguridadSocial()+"";
-                datosUsuarios[9] = crudUsers_1.getNumeroDeColegiado()+"";
-                datosUsuarios[10] = crudUsers_1.getTipoDeDoctor()+"";
+                datosUsuarios[6] = crudUsers_1.getNif()+"";
+                datosUsuarios[7] = crudUsers_1.getNumeroSeguridadSocial()+"";
+                datosUsuarios[8] = crudUsers_1.getTipoDeEmpleado()+"";
                 
                 model.addRow(datosUsuarios);
             } catch (Exception e) {
@@ -168,5 +155,6 @@ public class VentanaCrudDoctores {
         tabla.setModel(model);
         
     }
+    
     
 }
