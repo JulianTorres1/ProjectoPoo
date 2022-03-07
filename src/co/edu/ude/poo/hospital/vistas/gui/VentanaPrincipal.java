@@ -55,6 +55,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtCodigoPostal = new javax.swing.JTextField();
         txtNif = new javax.swing.JTextField();
         txtNumeroSocial = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtDeleteUser = new javax.swing.JTextField();
+        btnDelete = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         btnUsuarioAgregar = new javax.swing.JMenuItem();
@@ -264,6 +268,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel11.setText("Eliminar");
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jLabel12.setText("ID");
+
+        btnDelete.setText("Eliminar");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
         jMenu5.setText("Usuarios");
 
         btnUsuarioAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/ude/poo/hospital/vistas/iconos/diskette (1).png"))); // NOI18N
@@ -278,6 +296,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnUsuarioEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/ude/poo/hospital/vistas/iconos/delete (1).png"))); // NOI18N
         btnUsuarioEliminar.setText("Eliminar");
+        btnUsuarioEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuarioEliminarActionPerformed(evt);
+            }
+        });
         jMenu5.add(btnUsuarioEliminar);
 
         btnUsuarioBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/ude/poo/hospital/vistas/iconos/search (1).png"))); // NOI18N
@@ -380,8 +403,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel11)
+                            .addGap(84, 84, 84)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDelete)
+                        .addGap(15, 15, 15))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,7 +425,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtDeleteUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelete))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         pack();
@@ -412,6 +455,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumeroSocialActionPerformed
 
     private void btnUsuarioAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioAgregarActionPerformed
+        
+        // guardar
         
         String nombre = txtNombre.getText();
         String direccion = txtDireccion.getText();
@@ -437,6 +482,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuarioAgregarActionPerformed
 
     private void btnUsuarioEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioEditarActionPerformed
+        
+        
+        // Editar
         
         String idEditar = JOptionPane.showInputDialog("Ingresa el ID del Usuario a Editar: ");
         
@@ -465,6 +513,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         
     }//GEN-LAST:event_btnUsuarioEditarActionPerformed
+
+    private void btnUsuarioEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioEliminarActionPerformed
+        // eliminar
+        
+        
+        
+    }//GEN-LAST:event_btnUsuarioEliminarActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        
+        String id = txtDeleteUser.getText();
+
+        int idInt = Integer.parseInt(id);
+        
+        crudUsuarios.borrarUsuario(idInt);
+        
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -503,6 +568,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
     private javax.swing.JMenuItem btnUsuarioAgregar;
     private javax.swing.JMenuItem btnUsuarioBuscar;
     private javax.swing.JMenuItem btnUsuarioEditar;
@@ -510,6 +576,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnUsuarioListar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -543,6 +611,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtCodigoPostal;
+    private javax.swing.JTextField txtDeleteUser;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNif;
     private javax.swing.JTextField txtNombre;

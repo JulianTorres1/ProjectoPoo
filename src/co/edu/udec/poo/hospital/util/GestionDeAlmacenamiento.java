@@ -168,13 +168,7 @@ public class GestionDeAlmacenamiento {
            EntityManagerFactory conexionBD = Persistence.createEntityManagerFactory("HospitalPU");
            Users_1JpaController crudUser = new Users_1JpaController(conexionBD);
            
-           try{
-               
-               crudUser.destroy(id);
-               System.out.println(mensaje);
-           }catch(Exception e){
-               System.out.println("ERROR = "+e.getMessage());
-           }   
+              
         }
         
         if (optD == 2) {

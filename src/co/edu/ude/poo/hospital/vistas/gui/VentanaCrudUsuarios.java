@@ -6,6 +6,7 @@ package co.edu.ude.poo.hospital.vistas.gui;
 
 import co.edu.ude.poo.hospital.modelo.entidades.Users_1;
 import co.edu.ude.poo.hospital.servicios.Users_1JpaController;
+import co.edu.ude.poo.hospital.servicios.exceptions.NonexistentEntityException;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.JFrame;
@@ -105,6 +106,18 @@ public class VentanaCrudUsuarios {
         return mensaje;
     }
     
+    public String borrarUsuario(int id) {
     
+        String mensaje = "";
+    
+        try{
+               
+               crudUser.destroy(id);
+               JOptionPane.showMessageDialog(jFrame, "Eliminado Con Exito");
+           }catch(Exception e){
+               JOptionPane.showMessageDialog(jFrame, "Error al Eliminar el Usuario");
+           }
+        return mensaje;
+    }
     
 }
