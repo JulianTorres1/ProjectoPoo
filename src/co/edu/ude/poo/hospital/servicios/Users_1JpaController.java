@@ -51,16 +51,17 @@ public class Users_1JpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            users_1 = em.merge(users_1);
-            em.getTransaction().commit();
-        } catch (Exception ex) {
-            String msg = ex.getLocalizedMessage();
-            if (msg == null || msg.length() == 0) {
-                Integer id = users_1.getIdUsers();
-                if (findUsers_1(id) == null) {
-                    throw new NonexistentEntityException("The users_1 with id " + id + " no longer exists.");
-                }
+            Integer id = users_1.getIdUsers();
+            if (findUsers_1(id) == null) {
+                throw new NonexistentEntityException("The users_1 with id " + id + " no longer exists.");
+            }else{
+                
+                users_1 = em.merge(users_1);
+                em.getTransaction().commit();
             }
+            
+        } catch (Exception ex) {
+            
             throw ex;
         } finally {
             if (em != null) {

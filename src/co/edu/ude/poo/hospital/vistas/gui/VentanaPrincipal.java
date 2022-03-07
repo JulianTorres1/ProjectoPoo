@@ -4,6 +4,9 @@
  */
 package co.edu.ude.poo.hospital.vistas.gui;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author julia
@@ -11,7 +14,7 @@ package co.edu.ude.poo.hospital.vistas.gui;
 public class VentanaPrincipal extends javax.swing.JFrame {
     
     VentanaCrudUsuarios crudUsuarios = new VentanaCrudUsuarios();
-    
+    private JFrame jFrame = new JFrame();
     
 
     /**
@@ -165,9 +168,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(jLabel5))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(jLabel8))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
@@ -200,13 +200,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(txtCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNif, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(115, 115, 115))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -286,6 +290,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btnUsuarioEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/ude/poo/hospital/vistas/iconos/write (1).png"))); // NOI18N
         btnUsuarioEditar.setText("Editar");
+        btnUsuarioEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuarioEditarActionPerformed(evt);
+            }
+        });
         jMenu5.add(btnUsuarioEditar);
 
         jMenuBar1.add(jMenu5);
@@ -426,6 +435,36 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnUsuarioAgregarActionPerformed
+
+    private void btnUsuarioEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioEditarActionPerformed
+        
+        String idEditar = JOptionPane.showInputDialog("Ingresa el ID del Usuario a Editar: ");
+        
+        int idinteger = Integer.parseInt(idEditar);
+        
+        Integer id = idinteger;
+        String nombre = txtNombre.getText();
+        String direccion = txtDireccion.getText();
+        String telefono = txtTelefono.getText();
+        String poblacion = txtPoblacion.getText();
+        String provincia = txtProvincia.getText();
+        String codigoPostal = txtCodigoPostal.getText();
+        String nif = txtNif.getText();
+        String numeroSeguridaSocial = txtNumeroSocial.getText();
+        
+        crudUsuarios.editarUsuario(id, nombre, direccion, telefono, poblacion, provincia, codigoPostal, nif, numeroSeguridaSocial);
+        
+        txtNombre.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+        txtPoblacion.setText("");
+        txtProvincia.setText("");
+        txtCodigoPostal.setText("");
+        txtNif.setText("");
+        txtNumeroSocial.setText("");
+
+        
+    }//GEN-LAST:event_btnUsuarioEditarActionPerformed
 
     /**
      * @param args the command line arguments
